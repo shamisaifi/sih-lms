@@ -1,12 +1,10 @@
-import { Button } from "./components/ui/button"
+import Sidebar from "./components/ui/Sidebar";
 function App() {
-
-
   return (
     <>
-    <Button variant="ghost" />
+      <Sidebar />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
