@@ -7,6 +7,12 @@ import { Label } from "@/components/ui/label";
 import { FaGoogle } from "react-icons/fa";
 import { LuLoader2 } from "react-icons/lu";
 
+import {
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  signInWithPhoneNumber,
+} from "firebase/auth";
+
 export default function Login({ className, ...props }) {
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -38,9 +44,7 @@ export default function Login({ className, ...props }) {
             />
           </div>
           <Button disabled={isLoading}>
-            {isLoading && (
-              <LuLoader2 className="mr-2 h-4 w-4 animate-spin" />
-            )}
+            {isLoading && <LuLoader2 className="mr-2 h-4 w-4 animate-spin" />}
             Sign In with Email
           </Button>
         </div>
