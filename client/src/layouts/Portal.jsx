@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "../components/ui/Sidebar"
 import { Outlet } from "react-router-dom";
 
-const portal = () => {
+const PortalLayout = () => {
   return (
     <>
       <Sidebar />
@@ -11,4 +11,4 @@ const portal = () => {
   );
 };
 
-export default portal;
+export default PortalLayout;
