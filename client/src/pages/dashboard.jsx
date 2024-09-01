@@ -1,7 +1,5 @@
-import React from "react";
+import { EnhancedInstructorDashboard } from "@/components/ui/enhanced-instructor-dashboard";
 
-const Dashboard = () => {
-  return <div>dashboard</div>;
-};
-
-export default Dashboard;
+export default function Dashboard() {
+    return <EnhancedInstructorDashboard />
+}
