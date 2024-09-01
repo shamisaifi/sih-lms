@@ -5,6 +5,7 @@ import {
   MdChat,
   MdGrade,
   MdSettings,
+  MdLeaderboard,
 } from "react-icons/md";
 
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
@@ -14,6 +15,7 @@ function Sidebar() {
   const sidebarContent = [
     { icon: <MdSpaceDashboard />, text: "Dashboard", navigateTo: "" },
     { icon: <MdBook />, text: "Courses", navigateTo: "courses" },
+    { icon: <MdLeaderboard />, text: "Leaderboard", navigateTo: "leaderboard" },
     { icon: <MdChat />, text: "Chats", navigateTo: "chats" },
     { icon: <MdGrade />, text: "Grades", navigateTo: "grades" },
     { icon: <MdSettings />, text: "Settings", navigateTo: "settings" },

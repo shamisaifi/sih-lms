@@ -36,13 +36,13 @@ const skillTimeline = [
   { skill: 'Deployment', date: '2023-05-01', progress: 0 },
 ]
 
-export default function Component() {
+export default function StudenDashboard() {
   const totalProgress = courseProgress.reduce((sum, course) => sum + course.progress, 0) / courseProgress.length
   const streak = 7 // Mock streak data
   const estimatedCompletionDate = new Date('2023-06-15') // Mock completion date
 
   return (
-    <div className="p-6 space-y-6 bg-background">
+    <div className="space-y-6 bg-transparent">
       <h1 className="text-3xl font-bold">Student Dashboard</h1>
       
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
