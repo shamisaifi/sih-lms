@@ -27,16 +27,16 @@ function Sidebar() {
   return (
     <div
       className={`relative flex items-start flex-col h-screen bg-gray-800 p-4 text-white transition duration-150 ease-out ${
-        isOpen ? "w-64" : "w-20"
+        isOpen ? "w-72" : "w-18"
       } `}
     >
       <div className=" w-full overflow-hidden flex items-center justify-between mb-8 ">
         {isOpen && (
           <div className="flex items-center justify-center">
             <img
-              src="public\assets\logo\GYAANSETU__3_-removebg-preview.png"
+              src="src\assets\logo\GYAANSETU__3_-removebg-preview.png"
               alt="Logo"
-              className=" w-10 h-8 rounded-full mr-2"
+              className=" w-10 h-8 rounded-full mr-2 "
             />
 
             <h1 className="text-xl font-bold tracking-wider">
@@ -60,9 +60,9 @@ function Sidebar() {
           return (
             <a
               href="#"
-              className="w-full  flex items-center p-2 rounded-md focus:bg-gray-600 hover:bg-gray-700"
+              className=" gap-3 flex items-center p-2 rounded-md focus:bg-gray-600 hover:bg-gray-700"
             >
-              <span className="mr-3 text-2xl">{item.icon}</span>{" "}
+              <span className="text-2xl  ">{item.icon}</span>{" "}
               {isOpen ? item.text : ""}
             </a>
           );
