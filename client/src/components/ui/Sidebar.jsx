@@ -6,7 +6,6 @@ import {
   MdGrade,
   MdSettings,
 } from "react-icons/md";
-
 import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
@@ -27,12 +26,11 @@ function Sidebar() {
 
   return (
     <div
-      className={`relative flex items-start flex-col h-screen bg-gray-800 py-2 px-4 text-white transition duration-150 ease-out ${
-        isOpen ? "w-72" : "w-18"
-      } `}
+      className={`relative flex items-start flex-col h-screen bg-gray-800 py-2 px-4 text-white transition-all duration-250 ease `}
+      style={{ width: isOpen ? "18rem" : "4.5rem" }}
     >
-      <div className=" w-full overflow-hidden flex justify-end mb-8 ">
-        <div className=" cursor-pointer " onClick={toggleSidebar}>
+      <div className="w-full overflow-hidden flex justify-end ">
+        <div className="cursor-pointer" onClick={toggleSidebar}>
           {isOpen ? (
             <BiMenuAltRight className="w-7 h-7" />
           ) : (
@@ -41,19 +39,18 @@ function Sidebar() {
         </div>
       </div>
 
-      <nav className=" w-full flex flex-col space-y-4 mt-5 ">
-        {sidebarContent?.map((item, index) => {
-          return (
-            <Link
-              key={index}
-              to={item.navigateTo}
-              className=" gap-3 flex items-center p-2 rounded-md focus:bg-gray-600 hover:bg-gray-700"
-            >
-              <span className="text-2xl  ">{item.icon}</span>{" "}
-              {isOpen ? item.text : ""}
-            </Link>
-          );
-        })}
+      <nav className="w-full flex flex-col space-y-4 mt-5">
+        {sidebarContent.map((item, index) => (
+          <Link
+            key={index}
+            to={item.navigateTo}
+            className={`gap-3 flex items-center p-2 rounded-md focus:bg-gray-600 hover:bg-gray-700 transition-all duration-300 ease-in-out`}
+            
+          >
+            <span className="text-2xl">{item.icon}</span>
+            {isOpen && <span>{item.text}</span>}
+          </Link>
+        ))}
       </nav>
 
       {isOpen && (
