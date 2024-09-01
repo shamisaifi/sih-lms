@@ -16,7 +16,7 @@ function App() {
           <Route element={<Login />} path="login" />
           <Route element={<Register />} exact path="register" />
         </Route>
-        <Route element={<PortalLayout />} path="/portal" />
+        <Route element={<PortalLayout />} path="/portal/*" />
       </Routes>
       <Toaster />
     </UserProvider>
