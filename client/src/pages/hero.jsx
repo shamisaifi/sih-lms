@@ -1,6 +1,7 @@
 import courseLogo from "../assets/images/online-course.png";
 import tutorLogo from "../assets/images/teacher.png";
 import booksLogo from "../assets/images/book.png";
+import heroBg from "../assets/images/hero-bg.png";
 
 export default function Hero() {
   const cardContent = [
@@ -67,11 +68,7 @@ export default function Hero() {
       </div>
 
       <div className=" w-1/2 flex justify-center items-center">
-        <img
-          src="src\assets\images\Online test-amico.png"
-          alt="background png"
-          width="70%"
-        />
+        <img src={heroBg} alt="background png" width="70%" />
       </div>
     </div>
   );
