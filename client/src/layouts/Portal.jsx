@@ -4,8 +4,10 @@ import Sidebar from "../components/ui/Sidebar"
 const portal = () => {
   return (
     <>
-      <Sidebar />
-      <h1>portal</h1>
+      <div className="w-full flex bg-gray-500 ">
+        <Sidebar />
+        <div className="border-2 border-red-500 w-full">hello</div>
+      </div>
     </>
   );
 };

@@ -55,12 +55,12 @@ function Sidebar() {
         </div>
       </div>
 
-      <nav className="flex flex-col space-y-4 mt-5">
+      <nav className=" w-full flex flex-col space-y-4 mt-5 ">
         {sidebarContent?.map((item) => {
           return (
             <a
               href="#"
-              className="flex items-center p-2 rounded-md focus:bg-gray-600 hover:bg-gray-700"
+              className="w-full  flex items-center p-2 rounded-md focus:bg-gray-600 hover:bg-gray-700"
             >
               <span className="mr-3 text-2xl">{item.icon}</span>{" "}
               {isOpen ? item.text : ""}
