@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "sonner";
+import { useUser } from "@/providers/auth-provider";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,6 +31,7 @@ const loginSchema = z.object({
 export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { setUser } = useUser();
 
   const isForgotPassword = new URLSearchParams(location.search).has(
     "forgot-password"
@@ -49,6 +51,8 @@ export default function Login() {
       const user = await signInWithPopup(auth, provider);
       localStorage.setItem("user", JSON.stringify(user));
 
+      setUser(user);
+
       navigate("/portal");
     } catch (error) {
       console.error(error);
@@ -59,6 +63,8 @@ export default function Login() {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       localStorage.setItem("user", JSON.stringify(user));
+
+      setUser(user);
 
       navigate("/portal");
     } catch (error) {
