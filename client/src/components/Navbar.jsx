@@ -5,7 +5,7 @@ import { FaBell } from "react-icons/fa6";
 
 const Navbar = () => {
     return (
-        <div className='px-5 flex items-center justify-center border-b border-solid border-black  shadow-xl'>
+        <div className='px-5 h-18 flex items-center justify-center border-b border-solid border-black  shadow-xl'>
             <nav className="flex justify-between items-center w-[100%] md:w-[90%]">
                 <span className="text-3xl font-semibold">Gyaan<span className="text-[#2f60c2]">Setu</span></span>
 
