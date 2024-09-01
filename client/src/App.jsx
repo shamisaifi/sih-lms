@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import AuthLayout from "./layouts/auth";
 import { UserProvider } from "./providers/auth-provider";
+import Portal from "./layouts/Portal";
 
 import { Hero, Login, Register } from "./pages";
 
@@ -14,6 +15,7 @@ function App() {
           <Route element={<Login />} path="login" />
           <Route element={<Register />} exact path="register" />
         </Route>
+        <Route element={<Portal />} path="/portal" />
       </Routes>
     </UserProvider>
   );
