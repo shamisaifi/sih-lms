@@ -9,7 +9,8 @@ import { Separator } from "@/components/ui/separator"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Input } from "@/components/ui/input"
-import { ChevronRight, MessageSquare, ThumbsUp, Send, FileText } from "lucide-react";
+import { ChevronRight, MessageSquare, ThumbsUp, Send, FileText, ArrowLeft } from "lucide-react";
+import { useNavigate } from 'react-router-dom'
 
 // Mock data for course content
 const courseContent = [
@@ -43,6 +44,8 @@ export function CourseViewPage() {
   const [aiMessage, setAiMessage] = useState("")
   const [aiChat, setAiChat] = useState([])
 
+  const navigate = useNavigate();
+
   const handleContentSelect = (content) => {
     setCurrentContent(content)
   }
@@ -64,7 +67,11 @@ export function CourseViewPage() {
   }
 
   return (
-    (<div className="container mx-auto px-4 py-8">
+    <>
+    <button>
+      <ArrowLeft onClick={() => navigate(-1)} />
+    </button>
+    <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Course Title</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
@@ -250,6 +257,7 @@ export function CourseViewPage() {
           </Card>
         </div>
       </div>
-    </div>)
+    </div>
+    </>
   );
 }

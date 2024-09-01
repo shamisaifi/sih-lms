@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -7,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, Clock, Award, ChevronRight } from "lucide-react"
+import { useNavigate } from 'react-router-dom'
 
 // Mock data for courses
 const courses = [
@@ -50,6 +49,7 @@ const courses = [
 
 export function StudentCourses() {
   const [activeTab, setActiveTab] = useState("ongoing")
+  const navigate = useNavigate();
 
   const filteredCourses = courses.filter(course => course.status === activeTab)
 
@@ -115,7 +115,7 @@ export function StudentCourses() {
                 </CardContent>
                 <CardFooter className="flex justify-between">
                   <Badge variant="secondary">{course.status}</Badge>
-                  <Button variant="ghost">
+                  <Button variant="ghost" onClick={() => navigate("1")}>
                     Continue <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardFooter>

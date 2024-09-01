@@ -54,7 +54,7 @@ const Navbar = () => {
           </ul>
           <div className="group cursor-pointer relative p-4">
             <div className="rounded-full p-2  w-10 h-10 flex items-center justify-center">
-              {/* <img src={user.user.photoURL} alt="User" className="w-full h-full border rounded-full" /> */}
+              <img src={user?.user?.photoURL} alt="User" className="w-full h-full border rounded-full" />
             </div>
 
             <div className="transition-all duration-500 ease-in-out hidden group-hover:block  shadow-2xl absolute top-[102%] right-0 w-[12rem] text-base bg-[#ffffff]">
