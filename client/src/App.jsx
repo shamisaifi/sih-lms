@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "./components/ui/sonner";
 
 import AuthLayout from "./layouts/auth";
 import { UserProvider } from "./providers/auth-provider";
-import Portal from "./layouts/Portal";
+import Portal from "./layouts/portal";
 
 import { Hero, Login, Register } from "./pages";
 
@@ -17,6 +18,7 @@ function App() {
         </Route>
         <Route element={<Portal />} path="/portal" />
       </Routes>
+      <Toaster />
     </UserProvider>
   );
 }

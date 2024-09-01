@@ -2,8 +2,9 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,7 +12,7 @@ import { FaGoogle } from "react-icons/fa";
 import { LuLoader2 } from "react-icons/lu";
 
 import {
-  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
@@ -26,8 +27,9 @@ const registerSchema = z.object({
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
-export default function Register({ className, ...props }) {
-  const [isLoading, setIsLoading] = React.useState(false);
+export default function Register() {
+  
+  const navigate = useNavigate();
 
   const {
     register,
@@ -42,26 +44,34 @@ export default function Register({ className, ...props }) {
     try {
       const user = await signInWithPopup(auth, provider);
       localStorage.setItem("user", JSON.stringify(user));
+
+      navigate("/portal");
     } catch (error) {
       console.error(error);
+
+      toast.error("An error occurred. Please try again.");
     }
   };
 
-  const handleEmailSignin = async (email, password) => {
+  const handleEmailSignup = async (email, password) => {
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
+      const user = await createUserWithEmailAndPassword(auth, email, password);
       localStorage.setItem("user", JSON.stringify(user));
+
+      navigate("/portal");
     } catch (error) {
       console.error(error);
+
+      toast.error("An error occurred. Please try again.");
     }
   };
 
   async function onSubmit(event) {
-    await handleEmailSignin(event.email, event.password);
+    await handleEmailSignup(event.email, event.password);
   }
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className={"grid gap-6"}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-2">
           <div className="grid gap-1">
@@ -121,11 +131,11 @@ export default function Register({ className, ...props }) {
               </span>
             )}
           </div>
-          <Button disabled={isLoading}>
+          <Button disabled={isSubmitting}>
             {isSubmitting && (
               <LuLoader2 className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Sign In with Email
+            Sign Up with Email
           </Button>
         </div>
       </form>
