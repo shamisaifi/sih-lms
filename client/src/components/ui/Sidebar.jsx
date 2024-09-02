@@ -28,7 +28,7 @@ function Sidebar() {
 
   return (
     <div
-      className={`relative flex items-start flex-col h-screen bg-gray-800 py-2 px-4 text-white transition-all duration-250 ease `}
+      className={`relative flex items-start flex-col h-screen  py-2 px-4  transition-all duration-250 ease `}
       style={{ width: isOpen ? "18rem" : "4.5rem" }}
     >
       <div className="w-full overflow-hidden flex justify-end ">
@@ -46,7 +46,7 @@ function Sidebar() {
           <Link
             key={index}
             to={item.navigateTo}
-            className={`gap-3 flex items-center p-2 rounded-md focus:bg-gray-600 hover:bg-gray-700 transition-all duration-300 ease-in-out`}
+            className={`gap-3 flex items-center p-2 rounded-md focus:bg-gray-300 hover:bg-gray-200 transition-all duration-300 ease-in-out`}
             
           >
             <span className="text-2xl">{item.icon}</span>
