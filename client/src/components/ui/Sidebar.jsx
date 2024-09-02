@@ -20,26 +20,17 @@ function Sidebar() {
     { icon: <MdSettings />, text: "Settings", navigateTo: "settings" },
   ];
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <div
       className={`relative flex items-start flex-col h-screen  py-2 px-4  transition-all duration-250 ease `}
       style={{ width: isOpen ? "18rem" : "4.5rem" }}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
-      <div className="w-full overflow-hidden flex justify-end ">
-        <div className="cursor-pointer" onClick={toggleSidebar}>
-          {isOpen ? (
-            <BiMenuAltRight className="w-7 h-7" />
-          ) : (
-            <BiMenuAltLeft className="w-7 h-7" />
-          )}
-        </div>
-      </div>
+    
 
       <nav className="w-full flex flex-col space-y-4 mt-5">
         {sidebarContent.map((item, index) => (
