@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import { Dashboard } from "@/pages";
 import { InstructorCoursesPage } from "@/components/instructor-courses-page";
 import { CourseCreator } from "@/components/course-creator";
+import SearchResults from "@/pages/searchResults";
 
 const PortalLayout = () => {
   return (
@@ -20,6 +21,7 @@ const PortalLayout = () => {
             <Route path="courses/create-course" element={<CourseCreator />} />
             <Route path="saved" element={<h1>Products</h1>} />
             <Route path="orders" element={<h1>Orders</h1>} />
+            <Route path="search" element={<SearchResults />} />
           </Routes>
         </main>
       </div>
