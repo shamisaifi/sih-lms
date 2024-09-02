@@ -64,7 +64,7 @@ const studentEngagementData = [
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0000']
 
-export function EnhancedInstructorDashboard() {
+export function InstructorDashboard() {
   return (
     (<div className="space-y-6 bg-transparent">
       <h1 className="text-3xl font-bold">Instructor Dashboard</h1>

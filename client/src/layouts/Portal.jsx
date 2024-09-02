@@ -1,14 +1,23 @@
 import React from "react";
-import Sidebar from "../components/ui/Sidebar";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "@/components/Navbar";
 
-import { Dashboard } from "@/pages";
+import Sidebar from "../components/ui/Sidebar";
+import Navbar from "@/components/Navbar";
+import SearchResults from "@/pages/searchResults";
+import StudenDashboard from "@/components/student-dasboard";
+
+import { InstructorDashboard } from "@/components/instructor-dashboard";
 import { InstructorCoursesPage } from "@/components/instructor-courses-page";
 import { CourseCreator } from "@/components/course-creator";
-import SearchResults from "@/pages/searchResults";
+import { StudentCourses } from "@/components/student-courses";
+import { CourseViewPage } from "@/components/course-view-page";
+import { LeaderboardPage } from "@/components/leaderboard-page";
+
+import { useGlobalStore } from "@/stores/global-store";
 
 const PortalLayout = () => {
+  const { userType } = useGlobalStore();
+
   return (
     <div className="w-screen h-screen overflow-hidden">
       <Navbar />
@@ -16,9 +25,31 @@ const PortalLayout = () => {
         <Sidebar />
         <main className="w-full p-6 bg-gray-50 overflow-y-auto max-h-[calc(100vh-5rem)]">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="courses" element={<InstructorCoursesPage />} />
+            <Route
+              path="/"
+              element={
+                userType === "student" ? (
+                  <StudenDashboard />
+                ) : (
+                  <InstructorDashboard />
+                )
+              }
+            />
+            <Route
+              path="courses"
+              element={
+                userType === "student" ? (
+                  <StudentCourses />
+                ) : (
+                  <InstructorCoursesPage />
+                )
+              }
+            />
             <Route path="courses/create-course" element={<CourseCreator />} />
+            <Route path="courses/:courseId" element={<CourseViewPage />} />
+            {userType === "student" && (
+              <Route path="leaderboard" element={<LeaderboardPage />} />
+            )}
             <Route path="saved" element={<h1>Products</h1>} />
             <Route path="orders" element={<h1>Orders</h1>} />
             <Route path="search" element={<SearchResults />} />
