@@ -1,31 +1,38 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { FaBell } from "react-icons/fa6";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
-
 import { useUser } from "@/providers/auth-provider";
 import { useGlobalStore } from "@/stores/global-store";
 
+import SearchBar from "./ui/searchBar";
+
 const Navbar = () => {
+  const [query, setQuery] = useState("");
   const { user } = useUser();
-  const { userType, setUserType } = useGlobalStore();
+  const { userType, setUserType, data, setData } = useGlobalStore();
 
   const handleSelectUserType = (checked) => {
     setUserType(checked ? "instructor" : "student");
   };
 
-  const [query, setQuery] = useState("");
-  const [data, setData] = useState([]);
-
   const getData = async (query) => {
     try {
       const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts?q=${query}`
+        `https://api.unsplash.com/search/photos`,
+        {
+          params: {
+            query: query,
+            client_id: "-w9fy9-0wg2Dtrlv1FtsxjRY9i8VKh-hYHUjbYF96LA",
+          },
+        }
       );
 
-      console.log(response);
       setData(response.data);
     } catch (error) {
       console.log(error);
