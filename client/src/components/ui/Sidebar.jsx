@@ -7,7 +7,6 @@ import {
   MdSettings,
   MdLeaderboard,
 } from "react-icons/md";
-import { BiMenuAltRight, BiMenuAltLeft } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
@@ -25,7 +24,7 @@ function Sidebar() {
 
   return (
     <div
-      className={`relative flex items-start flex-col h-screen  py-2 px-4  transition-all duration-250 ease `}
+      className={`relative flex items-start flex-col h-screen  py-2 px-4  transition-all duration-500 ease `}
       style={{ width: isOpen ? "18rem" : "4.5rem" }}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}

@@ -1,19 +1,24 @@
 import React from "react";
 import { useGlobalStore } from "@/stores/global-store";
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const SearchResults = () => {
   const { data } = useGlobalStore();
-  console.log("data from search results: ", data);
+  const navigate = useNavigate();
 
   return (
-    <div className="border w-full h-screen flex justify-center items-center flex-wrap ">
+    <div className="relative border w-full p-3 ">
+      <button onClick={() => navigate(-1)} className=" relative -top-8 -left-8  bg-slate-200 rounded-full p-1 ">
+        <MdOutlineKeyboardBackspace className="text-3xl" />
+      </button>
       {data?.results?.length == 0 ? (
         <div>no data found</div>
       ) : (
         data?.results?.map((item, index) => {
           return (
-            <div key={index} className="p-3">
-              <img src={item.urls.full} alt="" width="50%" />
+            <div key={index} className="py-2">
+              <img src={item.urls.full} alt="" width="30%" />
             </div>
           );
         })
