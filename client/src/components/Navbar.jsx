@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import img1 from "../assets/logo/gs1.png";
 
 import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -50,8 +51,9 @@ const Navbar = () => {
   return (
     <div className="px-5 h-18 flex items-center justify-center border-b border-solid border-black  shadow-xl">
       <nav className="flex justify-between items-center w-[100%] md:w-[90%]">
-        <span className="text-3xl font-semibold">
-          Gyaan<span className="text-[#2f60c2]">Setu</span>
+
+        <span className="text-1xl font-semibold">
+          <img src={img1} className="w-[60%]"/>
         </span>
 
         <div className=" w-full flex justify-center items-center">
