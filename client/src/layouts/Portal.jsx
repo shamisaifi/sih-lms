@@ -1,10 +1,12 @@
 import React from "react";
-import Sidebar from "../components/ui/Sidebar";
 import { Routes, Route } from "react-router-dom";
+
+import Sidebar from "../components/ui/Sidebar";
 import Navbar from "@/components/Navbar";
+import SearchResults from "@/pages/searchResults";
+import StudenDashboard from "@/components/student-dasboard";
 
 import { InstructorDashboard } from "@/components/instructor-dashboard";
-import StudenDashboard from "@/components/student-dasboard";
 import { InstructorCoursesPage } from "@/components/instructor-courses-page";
 import { CourseCreator } from "@/components/course-creator";
 import { StudentCourses } from "@/components/student-courses";
@@ -50,6 +52,7 @@ const PortalLayout = () => {
             )}
             <Route path="saved" element={<h1>Products</h1>} />
             <Route path="orders" element={<h1>Orders</h1>} />
+            <Route path="search" element={<SearchResults />} />
           </Routes>
         </main>
       </div>
